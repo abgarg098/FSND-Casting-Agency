@@ -27,7 +27,7 @@ def get_actors(token):
         actors = Actor.query.order_by('id').all()
 
         if len(actors) == 0:
-            abort(404)
+            raise AuthError(404)
 
         formatted_actors = [actor.format() for actor in actors]
         return jsonify({
@@ -46,7 +46,7 @@ def get_movies(token):
         movies = Movie.query.order_by('id').all()
 
         if len(movies) == 0:
-            abort(404)
+            raise AuthError(404)
 
         formatted_movies = [movie.format() for movie in movies]
         return jsonify({
