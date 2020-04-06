@@ -91,13 +91,13 @@ The `--reload` flag will detect file changes and restart the server automaticall
             <li>Assign the Executive Producer role to the last</li>
         </ul>
     </li>
-    <li>Sign into each account and make note of the JWT.</li>
+    <li>Sign into each account and make note of the JWT.(https://fsndca.auth0.com/authorize?audience=casting agency&response_type=token&client_id=YAZXgqjhCCOCw5EIg4xlQeXukeNKkBmr&redirect_uri=http://localhost:8100)</li>
     <li>Test the endpoints with the latest version of [Postman](https://getpostman.com). 
         <ul>
             <li>Import the postman collection "./udacity-fsnd-castingagency.postman_collection.json"</li>
             <li>Right-clicking the collection folder for Casting Assistant, Casting Director and Executive Producer, navigate to the authorization tab, and include the JWT in the token field (you should have noted these JWTs).</li>
             <li>Run the collection.</li>
-            <li>The collection points to live application: https://stemed-final-casting-agency.herokuapp.com/</li>
+            <li>The collection points to live application: https://abgarg-capstone.herokuapp.com//</li>
         </ul>
     </li>
 </ol>
@@ -188,7 +188,12 @@ Note - make sure the 3 header variables are updated for each role JWT collected.
     <li>Response:
 
     {
-        "success": true
+        "success": true,
+        'actors': [ {
+        "name": "Updated Name",
+        "age": 50,
+        "gender": "Male"
+    }]
     }
 </li>
 </ul>
@@ -206,7 +211,11 @@ Note - make sure the 3 header variables are updated for each role JWT collected.
     <li>Response:
 
     {
-        "success": true
+        "success": true,
+        "movies":[{
+        "title": "Updated Title",
+        "release_date": "2018"
+    }]
     }
 </li>
 </ul>

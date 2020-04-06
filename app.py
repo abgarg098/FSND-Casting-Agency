@@ -86,7 +86,7 @@ def update_actor(token, id):
         }), 200
 
     except Exception:
-        abort(404)
+        abort(422)
 
 
 @APP.route('/movies/<id>', methods=['PATCH'])
@@ -114,7 +114,7 @@ def update_movie(token, id):
         }), 200
 
     except Exception:
-        abort(404)
+        abort(422)
 
 
 @APP.route('/actors', methods=['POST'])
