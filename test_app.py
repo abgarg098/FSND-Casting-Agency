@@ -32,24 +32,24 @@ class CastingAgencyTestCase(unittest.TestCase):
         }
 
         self.movie = {
-            'title': 'Avengers: Endgame',
-            'release_date': '2019'
+            'title': 'Hello Brother',
+            'release_date': '3011'
         }
 
         self.new_movie = {
-            'title': 'Black Widow',
-            'release_date': '2019'
+            'title': 'Coolie No 1',
+            'release_date': '1011'
         }
 
         self.actor = {
-            'name': 'Scarlett Johansson',
-            'age': '35',
+            'name': 'Deepika Padukone',
+            'age': '30',
             'gender': 'Female'
         }
 
         self.new_actor = {
-            'name': 'Robert Downey Jr.',
-            'age': '54',
+            'name': 'Govinda',
+            'age': '40',
             'gender': 'Male'
         }
 
