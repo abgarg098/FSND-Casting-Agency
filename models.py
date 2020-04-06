@@ -3,10 +3,10 @@ from sqlalchemy import Column, String, Integer
 from flask_sqlalchemy import SQLAlchemy
 import json
 
-database_name = "casting-agency"
-database_path = "postgres://postgres@{}/{}".format(
-     'localhost:5432', database_name)
-# database_path = os.environ['DATABASE_URL']
+# database_name = "casting-agency"
+# database_path = "postgres://postgres@{}/{}".format(
+#     'localhost:5432', database_name)
+database_path = os.environ['DATABASE_URL']
 db = SQLAlchemy()
 
 
