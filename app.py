@@ -23,40 +23,34 @@ APP = create_app()
 @APP.route('/actors', methods=['GET'])
 @requires_auth('get:actors')
 def get_actors(token):
-    try:
-        actors = Actor.query.order_by('id').all()
+    actors = Actor.query.order_by('id').all()
 
-        if len(actors) == 0:
-            raise AuthError(404)
+    if len(actors) == 0:
+        abort(404)
 
-        formatted_actors = [actor.format() for actor in actors]
-        return jsonify({
-            'actors': formatted_actors,
-            'success': True
-        }), 200
+    formatted_actors = [actor.format() for actor in actors]
+    return jsonify({
+        'actors': formatted_actors,
+        'success': True
+    }), 200
 
-    except Exception:
-        abort(422)
 
 
 @APP.route('/movies', methods=['GET'])
 @requires_auth('get:movies')
 def get_movies(token):
-    try:
-        movies = Movie.query.order_by('id').all()
+    movies = Movie.query.order_by('id').all()
 
-        if len(movies) == 0:
-            raise AuthError(404)
+    if len(movies) == 0:
+        abort(404)
 
-        formatted_movies = [movie.format() for movie in movies]
-        return jsonify({
-            'movies': formatted_movies,
-            'success': True
-        }), 200
+    formatted_movies = [movie.format() for movie in movies]
+    return jsonify({
+        'movies': formatted_movies,
+        'success': True
+    }), 200
 
-    except Exception:
-        abort(422)
-
+    
 
 @APP.route('/actors/<id>', methods=['PATCH'])
 @requires_auth('patch:actors')
