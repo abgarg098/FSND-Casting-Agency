@@ -107,13 +107,13 @@ def update_movie(token, id):
         if 'release_date' in body:
             movie.release_date = body['release_date']
 
-        movie.uodate()
+        movie.update()
         return jsonify({
             'success': True,
             'movies': [movie.format()]
         }), 200
 
-    except:
+    except Exception:
         abort(404)
 
 
@@ -143,7 +143,7 @@ def add_actor(token):
             'success': True
         }), 201
 
-    except:
+    except Exception:
         abort(422)
 
 
@@ -171,7 +171,7 @@ def add_movie(token):
             'success': True
         }), 201
 
-    except:
+    except Exception:
         abort(422)
 
 
@@ -180,7 +180,7 @@ def add_movie(token):
 def delete_actor(token, id):
     actor = Actor.query.get(id)
 
-    if actor == None:
+    if actor is None:
         abort(404)
 
     try:
@@ -189,7 +189,7 @@ def delete_actor(token, id):
             'success': True
         }), 200
 
-    except:
+    except Exception:
         abort(422)
 
 
@@ -198,7 +198,7 @@ def delete_actor(token, id):
 def delete_movie(token, id):
     movie = Movie.query.get(id)
 
-    if movie == None:
+    if movie is None:
         abort(404)
 
     try:
@@ -208,7 +208,7 @@ def delete_movie(token, id):
             'success': True
         }), 200
 
-    except:
+    except Exception:
         abort(422)
 
 
