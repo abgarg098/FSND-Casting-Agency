@@ -2,13 +2,7 @@
 
 <h2>Motivation</h2>
 
-<p>This project was an effort to combine all the skills I learned throughout the course of the Full Stack Developer Nanodegree, including:</p>
-<ul>
-    <li>SQL and Data Modeling for the Web</li>
-    <li>API Development and Documentation</li>
-    <li>Identity and Access Management</li>
-    <li>Server Deployment, Containerization and Testing</li>
-</ul>
+<p>A basic casting agency app to fulfill my learning from FSND.</p>
 
 <h2>Project Dependencies</h2>
 
