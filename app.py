@@ -20,6 +20,11 @@ app = create_app()
 #     APP.run(host='0.0.0.0', port=8080, debug=True)
 
 
+@app.route('/')
+def health():
+    return "Hello People!"
+
+
 @app.route('/actors', methods=['GET'])
 @requires_auth('get:actors')
 def get_actors(token):
@@ -33,7 +38,6 @@ def get_actors(token):
         'actors': formatted_actors,
         'success': True
     }), 200
-
 
 
 @app.route('/movies', methods=['GET'])
@@ -50,7 +54,6 @@ def get_movies(token):
         'success': True
     }), 200
 
-    
 
 @app.route('/actors/<id>', methods=['PATCH'])
 @requires_auth('patch:actors')
