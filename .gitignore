@@ -1,9 +1,7 @@
 venv/
 .vscode/
 __pycache__/
-test.db
 env/
-.zip
 
 # OS generated files #
 ######################
