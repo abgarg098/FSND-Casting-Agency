@@ -14,13 +14,13 @@ def create_app(test_config=None):
     return app
 
 
-APP = create_app()
+app = create_app()
 
 # if __name__ == '__main__':
 #     APP.run(host='0.0.0.0', port=8080, debug=True)
 
 
-@APP.route('/actors', methods=['GET'])
+@app.route('/actors', methods=['GET'])
 @requires_auth('get:actors')
 def get_actors(token):
     actors = Actor.query.order_by('id').all()
@@ -36,7 +36,7 @@ def get_actors(token):
 
 
 
-@APP.route('/movies', methods=['GET'])
+@app.route('/movies', methods=['GET'])
 @requires_auth('get:movies')
 def get_movies(token):
     movies = Movie.query.order_by('id').all()
@@ -52,7 +52,7 @@ def get_movies(token):
 
     
 
-@APP.route('/actors/<id>', methods=['PATCH'])
+@app.route('/actors/<id>', methods=['PATCH'])
 @requires_auth('patch:actors')
 def update_actor(token, id):
     actor = Actor.query.get(id)
@@ -83,7 +83,7 @@ def update_actor(token, id):
         abort(422)
 
 
-@APP.route('/movies/<id>', methods=['PATCH'])
+@app.route('/movies/<id>', methods=['PATCH'])
 @requires_auth('patch:movies')
 def update_movie(token, id):
     movie = Movie.query.get(id)
@@ -111,7 +111,7 @@ def update_movie(token, id):
         abort(422)
 
 
-@APP.route('/actors', methods=['POST'])
+@app.route('/actors', methods=['POST'])
 @requires_auth('post:actors')
 def add_actor(token):
     body = request.get_json()
@@ -141,7 +141,7 @@ def add_actor(token):
         abort(422)
 
 
-@APP.route('/movies', methods=['POST'])
+@app.route('/movies', methods=['POST'])
 @requires_auth('post:movies')
 def add_movie(token):
     body = request.get_json()
@@ -169,7 +169,7 @@ def add_movie(token):
         abort(422)
 
 
-@APP.route('/actors/<id>', methods=['DELETE'])
+@app.route('/actors/<id>', methods=['DELETE'])
 @requires_auth('delete:actors')
 def delete_actor(token, id):
     actor = Actor.query.get(id)
@@ -187,7 +187,7 @@ def delete_actor(token, id):
         abort(422)
 
 
-@APP.route('/movies/<id>', methods=['DELETE'])
+@app.route('/movies/<id>', methods=['DELETE'])
 @requires_auth('delete:movies')
 def delete_movie(token, id):
     movie = Movie.query.get(id)
@@ -206,7 +206,7 @@ def delete_movie(token, id):
         abort(422)
 
 
-@APP.errorhandler(404)
+@app.errorhandler(404)
 def not_found(error):
     return jsonify({
         "success": False,
@@ -215,7 +215,7 @@ def not_found(error):
     }), 404
 
 
-@APP.errorhandler(422)
+@app.errorhandler(422)
 def unprocessable(error):
     return jsonify({
         "success": False,
@@ -224,7 +224,7 @@ def unprocessable(error):
     }), 422
 
 
-@APP.errorhandler(AuthError)
+@app.errorhandler(AuthError)
 def auth_error(error):
     return jsonify({
         "success": False,
