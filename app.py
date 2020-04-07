@@ -226,6 +226,22 @@ def unprocessable(error):
         "message": "unprocessable"
     }), 422
 
+@app.errorhandler(400)
+def not_found(error):
+    return jsonify({
+        "success": False,
+        "error": 400,
+        "message": "Bad Request"
+    }), 400
+
+@app.errorhandler(500)
+def not_found(error):
+    return jsonify({
+        "success": False,
+        "error": 500,
+        "message": "Server Error"
+    }), 500
+
 
 @app.errorhandler(AuthError)
 def auth_error(error):
